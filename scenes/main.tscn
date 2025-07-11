@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://do8e7138jhjjl"]
+
+[ext_resource type="Script" uid="uid://d30vtcusmf8sa" path="res://scripts/main.gd" id="1_o5qli"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_o5qli")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 528.0
+offset_top = 273.0
+offset_right = 617.0
+offset_bottom = 296.0
+grow_horizontal = 2
+size_flags_horizontal = 8
+text = "Hello world"
+horizontal_alignment = 1
+vertical_alignment = 1
