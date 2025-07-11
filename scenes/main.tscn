@@ -1,20 +1,75 @@
-[gd_scene load_steps=2 format=3 uid="uid://do8e7138jhjjl"]
+[gd_scene load_steps=11 format=3 uid="uid://do8e7138jhjjl"]
 
 [ext_resource type="Script" uid="uid://d30vtcusmf8sa" path="res://scripts/main.gd" id="1_o5qli"]
+[ext_resource type="Texture2D" uid="uid://bbx4wt1vma21s" path="res://assets/platformer/sprites/knight.png" id="2_0wfyh"]
+[ext_resource type="Script" uid="uid://cvtskd6lq11dn" path="res://scripts/player.gd" id="2_sugp2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sugp2"]
+atlas = ExtResource("2_0wfyh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyhfs"]
+atlas = ExtResource("2_0wfyh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbgi4"]
+atlas = ExtResource("2_0wfyh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tefeu"]
+atlas = ExtResource("2_0wfyh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o6xl0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sugp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyhfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbgi4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tefeu")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0wfyh"]
+radius = 6.08276
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sugp2"]
+size = Vector2(556, 20)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_o5qli")
 
-[node name="Label" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 528.0
-offset_top = 273.0
-offset_right = 617.0
-offset_bottom = 296.0
-grow_horizontal = 2
-size_flags_horizontal = 8
-text = "Hello world"
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="MainCamera" type="Camera2D" parent="."]
+position = Vector2(18, 16)
+zoom = Vector2(4, 4)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("2_sugp2")
+
+[node name="Animator" type="AnimatedSprite2D" parent="Player"]
+position = Vector2(18, 10)
+sprite_frames = SubResource("SpriteFrames_o6xl0")
+animation = &"IDLE"
+autoplay = "IDLE"
+frame = 3
+frame_progress = 1.0
+
+[node name="Collision" type="CollisionShape2D" parent="Player"]
+position = Vector2(18, 16)
+shape = SubResource("CircleShape2D_0wfyh")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(39, 81)
+shape = SubResource("RectangleShape2D_sugp2")
