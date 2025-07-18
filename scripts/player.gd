@@ -4,7 +4,6 @@ const SPEED = 75.0
 
 const JUMP_VELOCITY = -(SPEED * 4) 
 
-
 func _physics_process(delta: float) -> void:
 	
 	if (!is_on_floor()):

@@ -269,7 +269,6 @@ position = Vector2(18, 16)
 shape = SubResource("CircleShape2D_0wfyh")
 
 [node name="MainCamera" type="Camera2D" parent="Player"]
-position = Vector2(26, -37)
 zoom = Vector2(4, 4)
 
 [node name="Map" type="TileMapLayer" parent="."]
