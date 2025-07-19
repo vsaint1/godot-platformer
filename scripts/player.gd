@@ -1,22 +1,32 @@
 extends CharacterBody2D
 
-const SPEED = 75.0
+const SPRINT_SPEED := 130.0
 
-const JUMP_VELOCITY = -(SPEED * 4) 
+var speed := 75.0
+var jump_velocity := -(speed * 4)
+var jumped := false
 
 func _physics_process(delta: float) -> void:
-	
-	if (!is_on_floor()):
+	if !is_on_floor():
 		velocity += get_gravity() * delta
 
-	if Input.is_action_just_pressed("jump") && is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("jump"):
+		jumped = true
 
+	if is_on_floor() && jumped:
+		velocity.y = jump_velocity
+		jumped = false
+
+	if Input.is_action_pressed("sprint"):
+		speed = SPRINT_SPEED
+	else:
+		speed = 75.0
 
 	var direction := Input.get_axis("move_left", "move_right")
+	
 	if direction:
-		velocity.x = direction * SPEED
+		velocity.x = direction * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, speed)
 		
 	move_and_slide()
