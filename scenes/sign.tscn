@@ -1,0 +1,60 @@
+[gd_scene load_steps=8 format=3 uid="uid://bbyqosnyuh3kb"]
+
+[ext_resource type="Texture2D" uid="uid://iixdboyinn51" path="res://assets/platformer/sprites/world_tileset.png" id="1_mbcot"]
+[ext_resource type="Script" uid="uid://cpqyub50jd8jx" path="res://scripts/interaction.gd" id="1_w2mlg"]
+[ext_resource type="FontFile" uid="uid://bletugc5ohc7p" path="res://assets/fonts/Minecraft.ttf" id="3_8yyji"]
+[ext_resource type="FontFile" uid="uid://c6mhpfh8s1dy4" path="res://assets/platformer/fonts/PixelOperator8.ttf" id="3_ge2pc"]
+[ext_resource type="FontFile" uid="uid://dw5ponl3b4d43" path="res://assets/platformer/fonts/PixelOperator8-Bold.ttf" id="4_ge2pc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_efcy8"]
+size = Vector2(21, 15)
+
+[sub_resource type="Theme" id="Theme_ge2pc"]
+default_font = ExtResource("3_8yyji")
+default_font_size = 18
+
+[node name="Sign" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_w2mlg")
+text = "Wait for the  platform ⚠️"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_mbcot")
+region_enabled = true
+region_rect = Rect2(129, 50, 14, 14)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -1.5)
+shape = SubResource("RectangleShape2D_efcy8")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+z_index = 20
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -38.0
+offset_right = 42.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = SubResource("Theme_ge2pc")
+theme_override_colors/default_color = Color(0.424765, 0.606791, 0.999999, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 1
+theme_override_fonts/normal_font = ExtResource("3_ge2pc")
+theme_override_fonts/bold_font = ExtResource("4_ge2pc")
+theme_override_font_sizes/normal_font_size = 8
+theme_override_font_sizes/bold_font_size = 8
+bbcode_enabled = true
+text = "Press KEY to Interact"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
