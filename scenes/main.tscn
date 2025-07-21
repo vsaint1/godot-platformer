@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=4 uid="uid://do8e7138jhjjl"]
 
 [ext_resource type="Script" uid="uid://d30vtcusmf8sa" path="res://scripts/main.gd" id="1_o5qli"]
-[ext_resource type="PackedScene" uid="uid://bkj76c8enitkk" path="res://scenes/player.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bkj76c8enitkk" path="res://prefabs/player.tscn" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://iixdboyinn51" path="res://assets/platformer/sprites/world_tileset.png" id="4_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://cecb8rnvyg3y3" path="res://scenes/platform.tscn" id="5_tbgi4"]
-[ext_resource type="PackedScene" uid="uid://bbyqosnyuh3kb" path="res://scenes/sign.tscn" id="8_tipki"]
+[ext_resource type="PackedScene" uid="uid://cecb8rnvyg3y3" path="res://prefabs/platform.tscn" id="5_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bbyqosnyuh3kb" path="res://prefabs/sign.tscn" id="8_tipki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("4_jyhfs")

@@ -1,0 +1,146 @@
+[gd_scene load_steps=7 format=3 uid="uid://ilrdo37w4mq7"]
+
+[ext_resource type="Texture2D" uid="uid://yvyh7uhdj3u8" path="res://assets/ui/br.png" id="1_cr101"]
+[ext_resource type="Script" uid="uid://decdy6p7uosex" path="res://scripts/settings_menu.gd" id="1_wswnh"]
+[ext_resource type="Texture2D" uid="uid://cn7galu7wg5wn" path="res://assets/ui/flatDark23.png" id="2_labj1"]
+[ext_resource type="Texture2D" uid="uid://cerj5sgj0wg7k" path="res://assets/ui/us.png" id="2_wswnh"]
+[ext_resource type="FontFile" uid="uid://bletugc5ohc7p" path="res://assets/fonts/Minecraft.ttf" id="3_lwwgp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_labj1"]
+bg_color = Color(0, 0, 0, 0.396078)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_top = 20.0
+
+[node name="SettingsMenu" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0392157, 0.407843, 1, 1)
+script = ExtResource("1_wswnh")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+custom_minimum_size = Vector2(800, 600)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_labj1")
+
+[node name="Return" type="Button" parent="PanelContainer"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+tooltip_text = "Return to main Menu"
+mouse_default_cursor_shape = 2
+icon = ExtResource("2_labj1")
+flat = true
+icon_alignment = 1
+expand_icon = true
+
+[node name="Name" type="Label" parent="PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_lwwgp")
+theme_override_font_sizes/font_size = 128
+text = "Settings"
+
+[node name="Settings" type="VBoxContainer" parent="PanelContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VolumeLabel" type="Label" parent="PanelContainer/Settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Master Volume"
+
+[node name="EngineSlider" type="HSlider" parent="PanelContainer/Settings"]
+layout_mode = 2
+tooltip_text = "Sound system"
+tooltip_auto_translate_mode = 1
+max_value = 1.0
+step = 0.1
+
+[node name="LanguageLabel" type="Label" parent="PanelContainer/Settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Choose Language"
+
+[node name="LanguageOption" type="OptionButton" parent="PanelContainer/Settings"]
+layout_mode = 2
+icon_alignment = 2
+selected = 0
+item_count = 2
+popup/item_0/text = "English"
+popup/item_0/icon = ExtResource("2_wswnh")
+popup/item_0/id = 1
+popup/item_1/text = "Portuguese"
+popup/item_1/icon = ExtResource("1_cr101")
+popup/item_1/id = 0
+popup/item_1/disabled = true
+
+[node name="DifficultyLabel" type="Label" parent="PanelContainer/Settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Select the Difficulty"
+
+[node name="DifficultyOption" type="OptionButton" parent="PanelContainer/Settings"]
+layout_mode = 2
+selected = 0
+item_count = 3
+popup/item_0/text = "Easy"
+popup/item_0/id = 0
+popup/item_1/text = "Medium"
+popup/item_1/id = 1
+popup/item_1/disabled = true
+popup/item_2/text = "Hard"
+popup/item_2/id = 2
+popup/item_2/disabled = true
+
+[node name="ResolutionLabel" type="Label" parent="PanelContainer/Settings"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Resolution"
+horizontal_alignment = 2
+
+[node name="ResolutionOption" type="OptionButton" parent="PanelContainer/Settings"]
+layout_mode = 2
+selected = 1
+item_count = 3
+popup/item_0/text = "1920x1080 (16:9)"
+popup/item_0/id = 0
+popup/item_1/text = "1280x720 (16:9)"
+popup/item_1/id = 1
+popup/item_2/text = "640x480 (4:3)"
+popup/item_2/id = 2
+
+[node name="Vsync" type="CheckBox" parent="PanelContainer/Settings"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 16
+text = "Vsync"
+
+[connection signal="pressed" from="PanelContainer/Return" to="." method="_on_return_pressed"]
+[connection signal="value_changed" from="PanelContainer/Settings/EngineSlider" to="." method="_on_engine_slider_value_changed"]
+[connection signal="item_selected" from="PanelContainer/Settings/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
+[connection signal="toggled" from="PanelContainer/Settings/Vsync" to="." method="_on_vsync_toggled"]

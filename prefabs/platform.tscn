@@ -1,18 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://tkwuee00qsia"]
+[gd_scene load_steps=3 format=3 uid="uid://cecb8rnvyg3y3"]
 
-[ext_resource type="Texture2D" uid="uid://cepdojhgoey25" path="res://assets/platformer/sprites/platforms.png" id="1_emilk"]
+[ext_resource type="Texture2D" uid="uid://cepdojhgoey25" path="res://assets/platformer/sprites/platforms.png" id="1_ba0x2"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_j06ch"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ba0x2"]
 size = Vector2(32, 8)
 
-[node name="Platform" type="Node"]
+[node name="Platform" type="AnimatableBody2D"]
 
-[node name="AnimatableBody2D" type="AnimatableBody2D" parent="."]
-
-[node name="Sprite2D" type="Sprite2D" parent="AnimatableBody2D"]
-texture = ExtResource("1_emilk")
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ba0x2")
 region_enabled = true
 region_rect = Rect2(16, 0, 32, 9)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatableBody2D"]
-shape = SubResource("RectangleShape2D_j06ch")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ba0x2")
+one_way_collision = true

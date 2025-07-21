@@ -7,17 +7,17 @@
 
 [sub_resource type="Theme" id="Theme_l6cm7"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cm7"]
-content_margin_left = 30.0
-content_margin_top = 30.0
-content_margin_right = 30.0
-content_margin_bottom = 30.0
-bg_color = Color(0, 0, 0, 0.113725)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ekxnf"]
+bg_color = Color(0, 0, 0, 0.396078)
+border_blend = true
 corner_radius_top_left = 4
 corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
-shadow_size = 1
+expand_margin_left = 30.0
+expand_margin_top = 30.0
+expand_margin_right = 30.0
+expand_margin_bottom = 30.0
 
 [node name="MainMenu" type="ColorRect"]
 anchors_preset = 15
@@ -44,7 +44,10 @@ theme_override_constants/margin_bottom = 0
 [node name="Source" type="LinkButton" parent="MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 8
-text = "Github"
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/font_size = 16
+text = "Source code"
 underline = 1
 uri = "https://github.com/vsaint1/gd-platformer"
 
@@ -66,7 +69,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 size_flags_stretch_ratio = 0.0
 theme = SubResource("Theme_l6cm7")
-theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ekxnf")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
 custom_minimum_size = Vector2(150, 0)
@@ -78,14 +81,17 @@ alignment = 1
 
 [node name="Start" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Start"
 
 [node name="Settings" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Settings"
 
 [node name="Quit" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 text = "Quit"
 
 [connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
