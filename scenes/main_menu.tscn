@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://s57mfrwm3lo3"]
+[gd_scene load_steps=7 format=3 uid="uid://s57mfrwm3lo3"]
 
 [ext_resource type="FontFile" uid="uid://bletugc5ohc7p" path="res://assets/fonts/Minecraft.ttf" id="1_l6cm7"]
 [ext_resource type="Script" uid="uid://qioj5dfuwt1c" path="res://scripts/main_menu.gd" id="1_wu84c"]
+[ext_resource type="Script" uid="uid://mpog0xl5nvxs" path="res://scripts/button_start.gd" id="3_bqqt6"]
 
 [sub_resource type="Theme" id="Theme_vue75"]
 
@@ -60,7 +61,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 4
 theme_override_constants/shadow_outline_size = 12
 theme_override_fonts/font = ExtResource("1_l6cm7")
-theme_override_font_sizes/font_size = 128
+theme_override_font_sizes/font_size = 64
 text = "Awesome Game"
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
@@ -83,6 +84,7 @@ alignment = 1
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Start"
+script = ExtResource("3_bqqt6")
 
 [node name="Settings" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
@@ -93,7 +95,3 @@ text = "Settings"
 layout_mode = 2
 mouse_default_cursor_shape = 2
 text = "Quit"
-
-[connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
-[connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
-[connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

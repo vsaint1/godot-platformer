@@ -5,6 +5,7 @@ extends ColorRect
 @export var resolution_option: OptionButton =null
 @export var engine_slider: HSlider = null
 @export var vsync: CheckBox = null
+@export var start_menu_button: Button = null
 
 var master_volume:float = 0.0
 
@@ -23,15 +24,16 @@ func _ready() -> void:
 func _on_return_pressed() -> void:
 	_return_to_main_menu()
 
-
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		_return_to_main_menu()
 
 func _return_to_main_menu() -> void:
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	self.visible = false
+	var main_menu = get_parent().get_node("MainMenu")
+	main_menu.visible = true
+	start_menu_button.grab_focus()
 	
-
 
 func _on_engine_slider_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(value))

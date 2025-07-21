@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bqappinessexh"]
+
+[ext_resource type="Script" uid="uid://r6c74wa0j2wm" path="res://scripts/menu_manager.gd" id="1_wbwtb"]
+[ext_resource type="PackedScene" uid="uid://s57mfrwm3lo3" path="res://scenes/main_menu.tscn" id="2_rducx"]
+[ext_resource type="PackedScene" uid="uid://ilrdo37w4mq7" path="res://scenes/settings_menu.tscn" id="3_m2if8"]
+
+[node name="MenuManager" type="Node"]
+script = ExtResource("1_wbwtb")
+
+[node name="MainMenu" parent="." instance=ExtResource("2_rducx")]
+script = null
+
+[node name="VBoxContainer" parent="MainMenu/MarginContainer/PanelContainer" index="0"]
+focus_mode = 2
+
+[node name="SettingsMenu" parent="." node_paths=PackedStringArray("start_menu_button") instance=ExtResource("3_m2if8")]
+start_menu_button = NodePath("../MainMenu/MarginContainer/PanelContainer/VBoxContainer/Start")
+
+[connection signal="pressed" from="MainMenu/MarginContainer/PanelContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MainMenu/MarginContainer/PanelContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MainMenu/MarginContainer/PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+
+[editable path="MainMenu"]
+[editable path="SettingsMenu"]

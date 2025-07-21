@@ -40,7 +40,7 @@ grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_labj1")
 
 [node name="Return" type="Button" parent="PanelContainer"]
-custom_minimum_size = Vector2(64, 32)
+custom_minimum_size = Vector2(128, 64)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
