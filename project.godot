@@ -15,7 +15,7 @@ config/name_localized={
 "pt_BR": "Mini plataforma"
 }
 config/description="Godot mini platformer - Brackeys Tut."
-run/main_scene="uid://do8e7138jhjjl"
+run/main_scene="uid://s57mfrwm3lo3"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 

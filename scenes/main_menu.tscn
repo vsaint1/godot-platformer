@@ -1,0 +1,93 @@
+[gd_scene load_steps=6 format=3 uid="uid://s57mfrwm3lo3"]
+
+[ext_resource type="FontFile" uid="uid://bletugc5ohc7p" path="res://assets/fonts/Minecraft.ttf" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://qioj5dfuwt1c" path="res://scripts/main_menu.gd" id="1_wu84c"]
+
+[sub_resource type="Theme" id="Theme_vue75"]
+
+[sub_resource type="Theme" id="Theme_l6cm7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l6cm7"]
+content_margin_left = 30.0
+content_margin_top = 30.0
+content_margin_right = 30.0
+content_margin_bottom = 30.0
+bg_color = Color(0, 0, 0, 0.113725)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+shadow_size = 1
+
+[node name="MainMenu" type="ColorRect"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = SubResource("Theme_vue75")
+color = Color(0.0392157, 0.407843, 1, 1)
+script = ExtResource("1_wu84c")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 100
+theme_override_constants/margin_bottom = 0
+
+[node name="Source" type="LinkButton" parent="MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "Github"
+underline = 1
+uri = "https://github.com/vsaint1/gd-platformer"
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 4
+theme_override_constants/shadow_outline_size = 12
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 128
+text = "Awesome Game"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+size_flags_stretch_ratio = 0.0
+theme = SubResource("Theme_l6cm7")
+theme_override_styles/panel = SubResource("StyleBoxFlat_l6cm7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 25
+alignment = 1
+
+[node name="Start" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Start"
+
+[node name="Settings" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Settings"
+
+[node name="Quit" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit"
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MarginContainer/PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
