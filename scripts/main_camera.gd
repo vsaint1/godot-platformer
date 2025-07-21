@@ -11,8 +11,7 @@ func _ready() -> void:
 		limit_top = map_size.position.y * cell_size.y
 		limit_right = (map_size.position.x + map_size.size.x) * cell_size.x
 		limit_bottom = (map_size.position.y + map_size.size.y) * cell_size.y
-	else:
-		push_error("TileMap not found!")
+	
 
 func _find_map() -> TileMap:
 	var current = get_parent()

@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=4 uid="uid://do8e7138jhjjl"]
+[gd_scene load_steps=12 format=4 uid="uid://do8e7138jhjjl"]
 
 [ext_resource type="Script" uid="uid://d30vtcusmf8sa" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bkj76c8enitkk" path="res://prefabs/player.tscn" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://iixdboyinn51" path="res://assets/platformer/sprites/world_tileset.png" id="4_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cecb8rnvyg3y3" path="res://prefabs/platform.tscn" id="5_tbgi4"]
+[ext_resource type="AudioStream" uid="uid://dn645vgnx7sk4" path="res://assets/musics/the_entertainer.ogg" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://bbyqosnyuh3kb" path="res://prefabs/sign.tscn" id="8_tipki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
@@ -235,3 +236,7 @@ disable_mode = 1
 
 [node name="PlatformSign" parent="." instance=ExtResource("8_tipki")]
 position = Vector2(578, 87)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_tefeu")
+autoplay = true
