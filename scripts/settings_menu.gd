@@ -1,10 +1,10 @@
 extends ColorRect
 
 
-@onready var resolution_label: Label = $PanelContainer/Settings/ResolutionLabel
-@onready var resolution_option: OptionButton = $PanelContainer/Settings/ResolutionOption
-@onready var engine_slider: HSlider = $PanelContainer/Settings/EngineSlider
-@onready var vsync: CheckBox = $PanelContainer/Settings/Vsync
+@export var resolution_label: Label = null
+@export var resolution_option: OptionButton =null
+@export var engine_slider: HSlider = null
+@export var vsync: CheckBox = null
 
 var master_volume:float = 0.0
 

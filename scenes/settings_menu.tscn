@@ -14,7 +14,7 @@ corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 expand_margin_top = 20.0
 
-[node name="SettingsMenu" type="ColorRect"]
+[node name="SettingsMenu" type="ColorRect" node_paths=PackedStringArray("resolution_label", "resolution_option", "engine_slider", "vsync")]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -22,6 +22,10 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.0392157, 0.407843, 1, 1)
 script = ExtResource("1_wswnh")
+resolution_label = NodePath("PanelContainer/Settings/ResolutionLabel")
+resolution_option = NodePath("PanelContainer/Settings/ResolutionOption")
+engine_slider = NodePath("PanelContainer/Settings/EngineSlider")
+vsync = NodePath("PanelContainer/Settings/Vsync")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 custom_minimum_size = Vector2(800, 600)
