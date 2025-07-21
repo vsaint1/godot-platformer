@@ -1,51 +1,10 @@
-[gd_scene load_steps=19 format=4 uid="uid://do8e7138jhjjl"]
+[gd_scene load_steps=11 format=4 uid="uid://do8e7138jhjjl"]
 
 [ext_resource type="Script" uid="uid://d30vtcusmf8sa" path="res://scripts/main.gd" id="1_o5qli"]
-[ext_resource type="Texture2D" uid="uid://bbx4wt1vma21s" path="res://assets/platformer/sprites/knight.png" id="2_0wfyh"]
-[ext_resource type="Script" uid="uid://cvtskd6lq11dn" path="res://scripts/player.gd" id="2_sugp2"]
+[ext_resource type="PackedScene" uid="uid://bkj76c8enitkk" path="res://player.tscn" id="2_tbgi4"]
 [ext_resource type="Texture2D" uid="uid://iixdboyinn51" path="res://assets/platformer/sprites/world_tileset.png" id="4_jyhfs"]
-[ext_resource type="Script" uid="uid://cklehts35gy4f" path="res://scenes/main_camera.gd" id="4_tefeu"]
 [ext_resource type="PackedScene" uid="uid://cecb8rnvyg3y3" path="res://scenes/platform.tscn" id="5_tbgi4"]
 [ext_resource type="PackedScene" uid="uid://bbyqosnyuh3kb" path="res://scenes/sign.tscn" id="8_tipki"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_sugp2"]
-atlas = ExtResource("2_0wfyh")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jyhfs"]
-atlas = ExtResource("2_0wfyh")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tbgi4"]
-atlas = ExtResource("2_0wfyh")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_tefeu"]
-atlas = ExtResource("2_0wfyh")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_o6xl0"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_sugp2")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jyhfs")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tbgi4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_tefeu")
-}],
-"loop": true,
-"name": &"IDLE",
-"speed": 10.0
-}]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_0wfyh"]
-radius = 6.08276
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tbgi4"]
 texture = ExtResource("4_jyhfs")
@@ -254,29 +213,7 @@ _data = {
 [node name="Main" type="Node2D"]
 script = ExtResource("1_o5qli")
 
-[node name="Player" type="CharacterBody2D" parent="."]
-z_index = 5
-collision_layer = 3
-collision_mask = 3
-script = ExtResource("2_sugp2")
-
-[node name="Animator" type="AnimatedSprite2D" parent="Player"]
-position = Vector2(18, 10)
-sprite_frames = SubResource("SpriteFrames_o6xl0")
-animation = &"IDLE"
-autoplay = "IDLE"
-frame = 3
-frame_progress = 1.0
-
-[node name="Collision" type="CollisionShape2D" parent="Player"]
-position = Vector2(18, 16)
-shape = SubResource("CircleShape2D_0wfyh")
-
-[node name="MainCamera" type="Camera2D" parent="Player" node_paths=PackedStringArray("map")]
-zoom = Vector2(4, 4)
-limit_smoothed = true
-script = ExtResource("4_tefeu")
-map = NodePath("../../Map")
+[node name="Player" parent="." instance=ExtResource("2_tbgi4")]
 
 [node name="Map" type="TileMapLayer" parent="."]
 position = Vector2(0, -2)
@@ -296,5 +233,5 @@ autoplay = "MOVE"
 position = Vector2(-50, 50)
 disable_mode = 1
 
-[node name="Sign" parent="." instance=ExtResource("8_tipki")]
+[node name="PlatformSign" parent="." instance=ExtResource("8_tipki")]
 position = Vector2(578, 87)

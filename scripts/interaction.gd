@@ -20,7 +20,7 @@ func _on_body_exited(_body: Node2D):
 	text_label.visible = false
 	text_label.clear()
 
-func _input(event: InputEvent) -> void:
+func _unhandled_input(event: InputEvent) -> void:
 	if can_interact and event.is_action_pressed("interact"):
 		text_label.clear()
 		text_label.append_text(text.replace("\n", "[br]"))

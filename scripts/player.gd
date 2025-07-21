@@ -6,6 +6,14 @@ var speed := 75.0
 var jump_velocity := -(speed * 4)
 var jumped := false
 
+@export var mobile_control: Control = null
+
+func _ready() -> void:
+	
+	if !InteractionManager.is_mobile():
+		mobile_control.queue_free()
+	
+
 func _physics_process(delta: float) -> void:
 	if !is_on_floor():
 		velocity += get_gravity() * delta

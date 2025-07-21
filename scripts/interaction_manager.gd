@@ -23,7 +23,7 @@ const INPUT_ICONS := {
 	},
 }
 
-func is_mobile() -> bool:
+func is_mobile() -> bool: 
 	var os = OS.get_name()
 	
 	if os == "Android" || os == "iOS":
@@ -34,16 +34,14 @@ func is_mobile() -> bool:
 func get_input_icon() -> AtlasTexture:
 	if is_mobile():
 		return _make_texture(INPUT_ICONS["Mobile"])
-		
-	var joypads = Input.get_connected_joypads()
-
-	for joypad in joypads:
-		var name = Input.get_joy_name(joypad).to_lower()
-		if "xbox" in name:
+	
+	for joypad in Input.get_connected_joypads():
+		var _name = Input.get_joy_name(joypad).to_lower()
+		if "xbox" in _name:
 			return _make_texture(INPUT_ICONS["Xbox"])
-		elif "playstation" in name or "ps" in name:
+		elif "playstation" in _name or "ps" in _name:
 			return _make_texture(INPUT_ICONS["PlayStation"])
-		elif "nintendo" in name or "switch" in name:
+		elif "nintendo" in _name or "switch" in _name:
 			return _make_texture(INPUT_ICONS["Nintendo"])
 
 	return _make_texture(INPUT_ICONS["Keyboard"])

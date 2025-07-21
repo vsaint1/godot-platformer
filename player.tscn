@@ -1,0 +1,104 @@
+[gd_scene load_steps=14 format=3 uid="uid://bkj76c8enitkk"]
+
+[ext_resource type="Script" uid="uid://cvtskd6lq11dn" path="res://scripts/player.gd" id="1_i3pqv"]
+[ext_resource type="Texture2D" uid="uid://bbx4wt1vma21s" path="res://assets/platformer/sprites/knight.png" id="2_hqtel"]
+[ext_resource type="Script" uid="uid://cklehts35gy4f" path="res://scenes/main_camera.gd" id="3_sweqy"]
+[ext_resource type="Texture2D" uid="uid://cn7galu7wg5wn" path="res://assets/ui/flatDark23.png" id="4_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://bv8xgmb1g6mbf" path="res://assets/ui/flatDark24.png" id="5_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://407atl2f04qa" path="res://assets/ui/flatDark25.png" id="6_dw050"]
+[ext_resource type="Texture2D" uid="uid://blx2r4u8j0vbk" path="res://assets/ui/flatDark47.png" id="7_1jxqw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sugp2"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jyhfs"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tbgi4"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tefeu"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o6xl0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sugp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jyhfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tbgi4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tefeu")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0wfyh"]
+radius = 6.08276
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobile_control")]
+z_index = 5
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_i3pqv")
+mobile_control = NodePath("MobileControls")
+
+[node name="Animator" type="AnimatedSprite2D" parent="."]
+position = Vector2(18, 10)
+sprite_frames = SubResource("SpriteFrames_o6xl0")
+animation = &"IDLE"
+autoplay = "IDLE"
+frame = 3
+frame_progress = 1.0
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2(18, 16)
+shape = SubResource("CircleShape2D_0wfyh")
+
+[node name="Camera" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
+limit_smoothed = true
+script = ExtResource("3_sweqy")
+
+[node name="MobileControls" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+size_flags_horizontal = 3
+
+[node name="Left" type="TouchScreenButton" parent="MobileControls"]
+texture_filter = 1
+position = Vector2(-167, 45)
+scale = Vector2(0.5, 0.516)
+texture_normal = ExtResource("4_2hs0m")
+passby_press = true
+action = "move_left"
+
+[node name="Right" type="TouchScreenButton" parent="MobileControls"]
+position = Vector2(-114, 46)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_1jxqw")
+passby_press = true
+action = "move_right"
+
+[node name="Jump" type="TouchScreenButton" parent="MobileControls"]
+position = Vector2(94, 41)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("6_dw050")
+action = "jump"
+
+[node name="Attack" type="TouchScreenButton" parent="MobileControls"]
+position = Vector2(130, 10)
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("7_1jxqw")
+action = "Attack"

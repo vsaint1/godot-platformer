@@ -71,6 +71,10 @@ interact={
 ]
 }
 
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
 [internationalization]
 
 locale/locale_filter_mode=1
