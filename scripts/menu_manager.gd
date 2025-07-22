@@ -3,6 +3,8 @@ extends Node
 @onready var settings_menu: ColorRect = $SettingsMenu
 
 func _ready() -> void:
+	TranslationServer.set_locale("en_US")
+	print("Current locale: ", TranslationServer.get_locale())
 	settings_menu.visible = false
 
 func _on_start_pressed() -> void:

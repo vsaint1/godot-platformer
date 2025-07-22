@@ -95,10 +95,9 @@ item_count = 2
 popup/item_0/text = "English"
 popup/item_0/icon = ExtResource("2_wswnh")
 popup/item_0/id = 1
-popup/item_1/text = "Portuguese"
+popup/item_1/text = "Português"
 popup/item_1/icon = ExtResource("1_cr101")
 popup/item_1/id = 0
-popup/item_1/disabled = true
 
 [node name="DifficultyLabel" type="Label" parent="PanelContainer/Settings"]
 layout_mode = 2

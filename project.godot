@@ -93,6 +93,7 @@ pointing/emulate_touch_from_mouse=true
 
 [internationalization]
 
+locale/translations=PackedStringArray("res://assets/mini_platform_translations.en_US.translation", "res://assets/mini_platform_translations.pt_BR.translation")
 locale/locale_filter_mode=1
 
 [physics]

@@ -62,3 +62,14 @@ func _on_resolution_option_item_selected(index: int) -> void:
 
 func _on_vsync_toggled(toggled_on: bool) -> void:
 	ProjectSettings.set_setting("display/window/vsync/vsync_mode",toggled_on)
+
+
+func _on_language_option_item_selected(index: int) -> void:
+
+	if index == 0:
+		TranslationServer.set_locale("en_US")
+	
+	if index == 1:
+		TranslationServer.set_locale("pt_BR")
+
+	

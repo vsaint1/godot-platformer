@@ -30,8 +30,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func show_interaction_message():
 	text_label.clear()
 
-	var gesture = "Tap " if InteractionManager.is_mobile() else "Press "
+	var gesture = tr("TEXT_GESTURE_TAP") if InteractionManager.is_mobile() else tr("TEXT_GESTURE_PRESS")
 	
 	text_label.add_text(gesture)
 	text_label.add_image(InteractionManager.get_input_icon())
-	text_label.add_text(" to interact")
+	text_label.add_text(tr("TEXT_INTERACT"))

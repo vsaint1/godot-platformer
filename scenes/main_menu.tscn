@@ -83,15 +83,15 @@ alignment = 1
 [node name="Start" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-text = "Start"
+text = "TEXT_START"
 script = ExtResource("3_bqqt6")
 
 [node name="Settings" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-text = "Settings"
+text = "TEXT_SETTINGS"
 
 [node name="Quit" type="Button" parent="MarginContainer/PanelContainer/VBoxContainer"]
 layout_mode = 2
 mouse_default_cursor_shape = 2
-text = "Quit"
+text = "TEXT_QUIT"

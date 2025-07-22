@@ -16,9 +16,29 @@ focus_mode = 2
 [node name="SettingsMenu" parent="." node_paths=PackedStringArray("start_menu_button") instance=ExtResource("3_m2if8")]
 start_menu_button = NodePath("../MainMenu/MarginContainer/PanelContainer/VBoxContainer/Start")
 
+[node name="Name" parent="SettingsMenu/PanelContainer" index="1"]
+theme_override_font_sizes/font_size = 64
+text = "TEXT_SETTINGS"
+
+[node name="VolumeLabel" parent="SettingsMenu/PanelContainer/Settings" index="0"]
+text = "TEXT_MASTER_VOLUME"
+
+[node name="LanguageLabel" parent="SettingsMenu/PanelContainer/Settings" index="2"]
+text = "TEXT_LANGUAGE_OPTION"
+
+[node name="DifficultyLabel" parent="SettingsMenu/PanelContainer/Settings" index="4"]
+text = "TEXT_DIFFICULTY_OPTION"
+
+[node name="ResolutionLabel" parent="SettingsMenu/PanelContainer/Settings" index="6"]
+text = "TEXT_RESOLUTION"
+
+[node name="Vsync" parent="SettingsMenu/PanelContainer/Settings" index="8"]
+text = "TEXT_VSYNC"
+
 [connection signal="pressed" from="MainMenu/MarginContainer/PanelContainer/VBoxContainer/Start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="MainMenu/MarginContainer/PanelContainer/VBoxContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MainMenu/MarginContainer/PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="item_selected" from="SettingsMenu/PanelContainer/Settings/LanguageOption" to="SettingsMenu" method="_on_language_option_item_selected"]
 
 [editable path="MainMenu"]
 [editable path="SettingsMenu"]
