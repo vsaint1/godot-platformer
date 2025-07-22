@@ -100,6 +100,7 @@ animations = [{
 radius = 4.0
 
 [node name="Coin" type="Area2D" node_paths=PackedStringArray("coin_pick_sound")]
+disable_mode = 1
 collision_layer = 2
 collision_mask = 2
 script = ExtResource("1_h1t07")

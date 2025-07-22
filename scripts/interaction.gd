@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var text_label := $RichTextLabel
+@export var sign_text :String = ""
 var can_interact := false
 
 func _ready():
@@ -22,7 +23,7 @@ func _on_body_exited(_body: Node2D):
 func _unhandled_input(event: InputEvent) -> void:
 	if can_interact and event.is_action_pressed("interact"):
 		text_label.clear()
-		text_label.append_text(tr("TEXT_PLATFORM_SIGN"))
+		text_label.append_text(tr(sign_text))
 		await get_tree().create_timer(5).timeout
 		show_interaction_message()
 

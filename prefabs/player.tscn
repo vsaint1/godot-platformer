@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bkj76c8enitkk"]
+[gd_scene load_steps=38 format=3 uid="uid://bkj76c8enitkk"]
 
 [ext_resource type="Script" uid="uid://cvtskd6lq11dn" path="res://scripts/player.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://bbx4wt1vma21s" path="res://assets/platformer/sprites/knight.png" id="2_hqtel"]
@@ -7,6 +7,24 @@
 [ext_resource type="Texture2D" uid="uid://bv8xgmb1g6mbf" path="res://assets/ui/flatDark24.png" id="5_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://407atl2f04qa" path="res://assets/ui/flatDark25.png" id="6_dw050"]
 [ext_resource type="Texture2D" uid="uid://blx2r4u8j0vbk" path="res://assets/ui/flatDark47.png" id="7_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://bxqq52ip6df65" path="res://assets/platformer/sprites/coin.png" id="8_kbsxf"]
+[ext_resource type="FontFile" uid="uid://bletugc5ohc7p" path="res://assets/fonts/Minecraft.ttf" id="9_rgeog"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gf0v6"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(0, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cv2ms"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(32, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g56qp"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(64, 224, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_axxvs"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(96, 224, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sugp2"]
 atlas = ExtResource("2_hqtel")
@@ -24,8 +42,93 @@ region = Rect2(64, 0, 32, 32)
 atlas = ExtResource("2_hqtel")
 region = Rect2(96, 0, 32, 32)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay5dx"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u51tk"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(0, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbsxf"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(32, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rgeog"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(64, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opo22"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(96, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rb0w"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(128, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sd3sa"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(160, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m2qjg"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(192, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_llb5v"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(224, 64, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0bak"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lulei"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(32, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_edtk3"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(64, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q2wkl"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(96, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2e50"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(128, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22xyk"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(160, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3tw4"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(192, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmymu"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(224, 96, 32, 32)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_o6xl0"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gf0v6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cv2ms")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g56qp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_axxvs")
+}],
+"loop": true,
+"name": &"DYING",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sugp2")
@@ -42,63 +145,180 @@ animations = [{
 "loop": true,
 "name": &"IDLE",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ay5dx")
+}],
+"loop": true,
+"name": &"JUMP",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u51tk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbsxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rgeog")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_opo22")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rb0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sd3sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m2qjg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_llb5v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0bak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lulei")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_edtk3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q2wkl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2e50")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22xyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3tw4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmymu")
+}],
+"loop": true,
+"name": &"RUNNING",
+"speed": 5.0
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0wfyh"]
 radius = 6.08276
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobile_control")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5loxu"]
+atlas = ExtResource("8_kbsxf")
+region = Rect2(0, 0, 16, 16)
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobile_control", "animation", "user_interface")]
 z_index = 5
 collision_layer = 3
 collision_mask = 3
 script = ExtResource("1_i3pqv")
-mobile_control = NodePath("MobileControls")
+mobile_control = NodePath("CanvasLayer/Control/MobileControls")
+animation = NodePath("Animator")
+user_interface = NodePath("CanvasLayer/MarginContainer/GUI")
 
 [node name="Animator" type="AnimatedSprite2D" parent="."]
 position = Vector2(18, 10)
 sprite_frames = SubResource("SpriteFrames_o6xl0")
-animation = &"IDLE"
+animation = &"DYING"
 autoplay = "IDLE"
-frame = 3
-frame_progress = 1.0
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(18, 16)
 shape = SubResource("CircleShape2D_0wfyh")
 
 [node name="Camera" type="Camera2D" parent="."]
+visible = false
 zoom = Vector2(4, 4)
 limit_smoothed = true
 script = ExtResource("3_sweqy")
 
-[node name="MobileControls" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-size_flags_horizontal = 3
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 20
 
-[node name="Left" type="TouchScreenButton" parent="MobileControls"]
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MobileControls" type="Control" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 186.0
+offset_top = -115.0
+offset_right = 186.0
+offset_bottom = -115.0
+grow_vertical = 0
+size_flags_horizontal = 6
+
+[node name="Left" type="TouchScreenButton" parent="CanvasLayer/Control/MobileControls"]
+modulate = Color(1, 1, 1, 0.858824)
 texture_filter = 1
-position = Vector2(-167, 45)
-scale = Vector2(0.5, 0.516)
+position = Vector2(-165, 11)
+scale = Vector2(1, 1.032)
 texture_normal = ExtResource("4_2hs0m")
 passby_press = true
 action = "move_left"
 
-[node name="Right" type="TouchScreenButton" parent="MobileControls"]
-position = Vector2(-114, 46)
-scale = Vector2(0.5, 0.5)
+[node name="Right" type="TouchScreenButton" parent="CanvasLayer/Control/MobileControls"]
+modulate = Color(1, 1, 1, 0.858824)
+position = Vector2(-43, 11)
 texture_normal = ExtResource("5_1jxqw")
 passby_press = true
 action = "move_right"
 
-[node name="Jump" type="TouchScreenButton" parent="MobileControls"]
-position = Vector2(94, 41)
-scale = Vector2(0.5, 0.5)
+[node name="Jump" type="TouchScreenButton" parent="CanvasLayer/Control/MobileControls"]
+modulate = Color(1, 1, 1, 0.858824)
+position = Vector2(896, 14)
 texture_normal = ExtResource("6_dw050")
 action = "jump"
 
-[node name="Attack" type="TouchScreenButton" parent="MobileControls"]
-position = Vector2(130, 10)
-scale = Vector2(0.5, 0.5)
+[node name="Attack" type="TouchScreenButton" parent="CanvasLayer/Control/MobileControls"]
+modulate = Color(1, 1, 1, 0.858824)
+position = Vector2(1015, -43)
 texture_normal = ExtResource("7_1jxqw")
 action = "Attack"
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+offset_top = 1.0
+offset_bottom = 721.0
+size_flags_horizontal = 0
+theme_override_constants/margin_top = 10
+
+[node name="GUI" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+
+[node name="Coin" type="TextureRect" parent="CanvasLayer/MarginContainer/GUI"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_5loxu")
+flip_h = true
+
+[node name="CoinCount" type="Label" parent="CanvasLayer/MarginContainer/GUI"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_colors/font_color = Color(0.999517, 0.964837, 0.859761, 1)
+theme_override_constants/line_spacing = 4
+theme_override_constants/outline_size = 8
+theme_override_fonts/font = ExtResource("9_rgeog")
+theme_override_font_sizes/font_size = 64
+text = "0"
