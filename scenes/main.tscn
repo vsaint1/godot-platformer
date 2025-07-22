@@ -248,7 +248,7 @@ _data = {
 script = ExtResource("1_o5qli")
 
 [node name="Player" parent="." instance=ExtResource("2_tbgi4")]
-position = Vector2(898, 24)
+position = Vector2(-311, 71)
 
 [node name="Camera" parent="Player" index="2" node_paths=PackedStringArray("map")]
 map = NodePath("../../Map/Terrain")
