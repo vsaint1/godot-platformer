@@ -11,3 +11,4 @@ TEXT_VSYNC,Vsync,Sincronização Vertical
 TEXT_GESTURE_TAP,Tap,Toque
 TEXT_GESTURE_PRESS,Press,Pressione
 TEXT_INTERACT,to Interact,para Interagir
+TEXT_PLATFORM_SIGN,Falling into the water could be game over.,Cair na água pode significar o fim do jogo.
