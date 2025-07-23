@@ -14,12 +14,16 @@ var is_dead := false
 @export var mobile_control: Control = null
 @export var animation: AnimatedSprite2D = null
 @export var user_interface: HBoxContainer = null
+@export var health_bar: ProgressBar = null
+@export var hurt_sound: AudioStreamPlayer2D = null
 
 var coin_label: Label = null
 
 func _ready() -> void:
 	coin_label = user_interface.get_node("CoinCount")
 	_setup_mobile_gameplay()
+	health_bar.value = health
+	
 
 func _physics_process(delta: float) -> void:
 	if is_dead:
@@ -74,6 +78,9 @@ func hurt(damage: int = 1) -> void:
 		return
 
 	health -= damage
+	
+	health_bar.value = health
+	hurt_sound.play()
 	
 	if health <= 0:
 		die()

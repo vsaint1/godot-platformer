@@ -1,9 +1,10 @@
-[gd_scene load_steps=38 format=3 uid="uid://bkj76c8enitkk"]
+[gd_scene load_steps=41 format=3 uid="uid://bkj76c8enitkk"]
 
 [ext_resource type="Script" uid="uid://cvtskd6lq11dn" path="res://scripts/player.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://bbx4wt1vma21s" path="res://assets/platformer/sprites/knight.png" id="2_hqtel"]
 [ext_resource type="Script" uid="uid://cklehts35gy4f" path="res://scripts/main_camera.gd" id="3_sweqy"]
 [ext_resource type="Texture2D" uid="uid://cn7galu7wg5wn" path="res://assets/ui/flatDark23.png" id="4_2hs0m"]
+[ext_resource type="AudioStream" uid="uid://bk08lhq04ergq" path="res://assets/platformer/sounds/hurt.wav" id="4_opo22"]
 [ext_resource type="Texture2D" uid="uid://bv8xgmb1g6mbf" path="res://assets/ui/flatDark24.png" id="5_1jxqw"]
 [ext_resource type="Texture2D" uid="uid://407atl2f04qa" path="res://assets/ui/flatDark25.png" id="6_dw050"]
 [ext_resource type="Texture2D" uid="uid://blx2r4u8j0vbk" path="res://assets/ui/flatDark47.png" id="7_1jxqw"]
@@ -211,11 +212,17 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_0wfyh"]
 radius = 6.08276
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgeog"]
+bg_color = Color(0.147672, 0.147672, 0.147672, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_opo22"]
+bg_color = Color(0.50052, 9.14484e-07, 0.00673445, 1)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_5loxu"]
 atlas = ExtResource("8_kbsxf")
 region = Rect2(0, 0, 16, 16)
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobile_control", "animation", "user_interface")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("mobile_control", "animation", "user_interface", "health_bar", "hurt_sound")]
 z_index = 5
 collision_layer = 3
 collision_mask = 3
@@ -223,6 +230,8 @@ script = ExtResource("1_i3pqv")
 mobile_control = NodePath("CanvasLayer/Control/MobileControls")
 animation = NodePath("Animator")
 user_interface = NodePath("CanvasLayer/MarginContainer/GUI")
+health_bar = NodePath("CanvasLayer/Control/HealthBar")
+hurt_sound = NodePath("AudioStreamPlayer2D")
 
 [node name="Animator" type="AnimatedSprite2D" parent="."]
 position = Vector2(18, 10)
@@ -240,6 +249,9 @@ zoom = Vector2(4, 4)
 limit_smoothed = true
 script = ExtResource("3_sweqy")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_opo22")
+
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 20
 
@@ -252,6 +264,18 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/Control"]
+layout_mode = 2
+offset_left = 23.0
+offset_top = 10.0
+offset_right = 301.0
+offset_bottom = 37.0
+size_flags_horizontal = 4
+theme_override_styles/background = SubResource("StyleBoxFlat_rgeog")
+theme_override_styles/fill = SubResource("StyleBoxFlat_opo22")
+value = 10.0
+show_percentage = false
 
 [node name="MobileControls" type="Control" parent="CanvasLayer/Control"]
 layout_mode = 1
@@ -294,23 +318,20 @@ texture_normal = ExtResource("7_1jxqw")
 action = "Attack"
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
-offset_top = 1.0
-offset_bottom = 721.0
-size_flags_horizontal = 0
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -104.0
+offset_bottom = 720.0
+grow_horizontal = 0
+size_flags_vertical = 3
 theme_override_constants/margin_top = 10
 
 [node name="GUI" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 2
-size_flags_vertical = 3
-
-[node name="Coin" type="TextureRect" parent="CanvasLayer/MarginContainer/GUI"]
-custom_minimum_size = Vector2(64, 64)
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 0
-texture = SubResource("AtlasTexture_5loxu")
-flip_h = true
+size_flags_horizontal = 10
+size_flags_vertical = 2
+alignment = 2
 
 [node name="CoinCount" type="Label" parent="CanvasLayer/MarginContainer/GUI"]
 layout_mode = 2
@@ -322,3 +343,11 @@ theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("9_rgeog")
 theme_override_font_sizes/font_size = 64
 text = "0"
+
+[node name="Coin" type="TextureRect" parent="CanvasLayer/MarginContainer/GUI"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+texture = SubResource("AtlasTexture_5loxu")
+flip_h = true
