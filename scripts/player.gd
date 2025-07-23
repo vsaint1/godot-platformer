@@ -77,3 +77,5 @@ func hurt(damage: int = 1) -> void:
 	
 	if health <=0:
 		is_dead = true
+		
+	print(health)

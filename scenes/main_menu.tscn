@@ -62,7 +62,7 @@ theme_override_constants/outline_size = 4
 theme_override_constants/shadow_outline_size = 12
 theme_override_fonts/font = ExtResource("1_l6cm7")
 theme_override_font_sizes/font_size = 64
-text = "Awesome Game"
+text = "PROGRAMMING WARRIOR"
 
 [node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
 layout_mode = 2

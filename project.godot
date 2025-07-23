@@ -22,6 +22,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 InteractionManager="*res://scripts/interaction_manager.gd"
+GameManager="*res://scripts/main.gd"
 
 [display]
 

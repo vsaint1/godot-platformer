@@ -1,6 +1,34 @@
-[gd_scene load_steps=2 format=3 uid="uid://bm7o260gnr1yc"]
+[gd_scene load_steps=5 format=3 uid="uid://bm7o260gnr1yc"]
 
 [ext_resource type="Script" uid="uid://ktriood6i876" path="res://scripts/enemy.gd" id="1_6n8dw"]
+[ext_resource type="Texture2D" uid="uid://d3ruqa7pynx36" path="res://assets/languages/languages.png" id="2_yfjof"]
 
-[node name="Enemy" type="Node2D"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_6n8dw"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yfjof"]
+radius = 7.0
+
+[node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_6n8dw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_6n8dw")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_yfjof")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1.19209e-07, 2.38419e-07)
+scale = Vector2(0.078125, 0.0625)
+texture = ExtResource("2_yfjof")
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(0, 14)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -108,15 +108,15 @@ text = "Select the Difficulty"
 [node name="DifficultyOption" type="OptionButton" parent="PanelContainer/Settings"]
 layout_mode = 2
 selected = 0
-item_count = 3
-popup/item_0/text = "Easy"
+item_count = 4
+popup/item_0/text = "TEXT_OPTION_0"
 popup/item_0/id = 0
-popup/item_1/text = "Medium"
+popup/item_1/text = "EasyTEXT_OPTION_1"
 popup/item_1/id = 1
-popup/item_1/disabled = true
-popup/item_2/text = "Hard"
+popup/item_2/text = "TEXT_OPTION_2"
 popup/item_2/id = 2
-popup/item_2/disabled = true
+popup/item_3/text = "TEXT_OPTION_3"
+popup/item_3/id = 3
 
 [node name="ResolutionLabel" type="Label" parent="PanelContainer/Settings"]
 layout_mode = 2
@@ -145,5 +145,6 @@ text = "Vsync"
 
 [connection signal="pressed" from="PanelContainer/Return" to="." method="_on_return_pressed"]
 [connection signal="value_changed" from="PanelContainer/Settings/EngineSlider" to="." method="_on_engine_slider_value_changed"]
+[connection signal="item_selected" from="PanelContainer/Settings/DifficultyOption" to="." method="_on_difficulty_option_item_selected"]
 [connection signal="item_selected" from="PanelContainer/Settings/ResolutionOption" to="." method="_on_resolution_option_item_selected"]
 [connection signal="toggled" from="PanelContainer/Settings/Vsync" to="." method="_on_vsync_toggled"]

@@ -73,3 +73,7 @@ func _on_language_option_item_selected(index: int) -> void:
 		TranslationServer.set_locale("pt_BR")
 
 	
+
+
+func _on_difficulty_option_item_selected(index: int) -> void:
+	GameManager.level_difficulty = index;
