@@ -12,11 +12,12 @@ TEXT_GESTURE_TAP,Tap,Toque
 TEXT_GESTURE_PRESS,Press,Pressione
 TEXT_INTERACT,to Interact,para Interagir
 TEXT_PLATFORM_SIGN,Falling into the water could be game over.,Cair na água pode significar o fim do jogo.
-TEXT_THANKS_END,"Thanks for playing, this game was my introduction to godot coming from a different engine and background. I applied several concepts from brackeys tutorial and godot documentation.","Obrigado por jogar. Este jogo foi minha introdução ao Godot, vindo de uma engine e contexto diferentes. Apliquei vários conceitos do tutorial do Brackeys e da documentação do Godot."
-TEXT_FINISH_SIGN,It's time to buy more programming courses and not finish them,É hora de comprar mais cursos de programação e não termina-los
+TEXT_THANKS_END,Thanks for playing.,Obrigado por jogar.
+TEXT_FINISH_SIGN,Time to buy another programming course I’ll never finish 😎,Hora de comprar outro curso de programação que nunca vou terminar 😎
 TEXT_GAME_NAME,Programming Warrior,Guerreiro da Programação
 TEXT_OPTION_0,Novice,Novato
 TEXT_OPTION_1,Easy,Fácil
 TEXT_OPTION_2,Medium,Médio
 TEXT_OPTION_3,Hard,Difícil
 TEXT_DIE,You died,Você morreu
+TEXT_MEME,Collect coins. Buy courses. Never open them,Colecione moedas. Compre cursos. Nunca os abra.
