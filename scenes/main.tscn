@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://do8e7138jhjjl"]
+[gd_scene load_steps=24 format=4 uid="uid://do8e7138jhjjl"]
 
 [ext_resource type="Script" uid="uid://d30vtcusmf8sa" path="res://scripts/main.gd" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://bkj76c8enitkk" path="res://prefabs/player.tscn" id="2_tbgi4"]
@@ -8,6 +8,8 @@
 [ext_resource type="Script" uid="uid://b8oeujavcl1mg" path="res://scripts/tutorial.gd" id="6_85g3d"]
 [ext_resource type="AudioStream" uid="uid://dn645vgnx7sk4" path="res://assets/musics/the_entertainer.ogg" id="6_tefeu"]
 [ext_resource type="PackedScene" uid="uid://c68ucxjojvmsb" path="res://prefabs/coin.tscn" id="7_o6xl0"]
+[ext_resource type="Script" uid="uid://c2ufrw0nkxktx" path="res://scripts/killzone.gd" id="7_ya4ey"]
+[ext_resource type="FontFile" uid="uid://bletugc5ohc7p" path="res://assets/fonts/Minecraft.ttf" id="8_eb6dy"]
 [ext_resource type="PackedScene" uid="uid://bbyqosnyuh3kb" path="res://prefabs/sign.tscn" id="8_tipki"]
 [ext_resource type="PackedScene" uid="uid://bm7o260gnr1yc" path="res://prefabs/enemy.tscn" id="10_choun"]
 
@@ -209,6 +211,9 @@ sources/0 = SubResource("TileSetAtlasSource_tbgi4")
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_o6xl0"]
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_choun"]
+distance = -24.0
+
 [sub_resource type="Animation" id="Animation_tbgi4"]
 resource_name = "MOVE"
 length = 2.0
@@ -307,6 +312,31 @@ scale_amount_min = 0.2
 scale_amount_max = 2.0
 color = Color(0.881937, 0.881937, 0.881937, 1)
 
+[node name="Killzone" type="Area2D" parent="Map" node_paths=PackedStringArray("message_label")]
+position = Vector2(654, 127)
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("7_ya4ey")
+message_label = NodePath("../CanvasLayer/Label")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Map/Killzone"]
+shape = SubResource("WorldBoundaryShape2D_choun")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Map"]
+
+[node name="Label" type="Label" parent="Map/CanvasLayer"]
+offset_left = 532.0
+offset_top = 85.0
+offset_right = 860.0
+offset_bottom = 149.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = ExtResource("8_eb6dy")
+theme_override_font_sizes/font_size = 64
+text = "TEXT_DIE"
+
 [node name="Collectables" type="Node" parent="."]
 
 [node name="Coin" parent="Collectables" instance=ExtResource("7_o6xl0")]
@@ -352,7 +382,7 @@ position = Vector2(1063, 6)
 
 [node name="EndSign" parent="Objects" instance=ExtResource("8_tipki")]
 position = Vector2(955, 41)
-sign_text = "You're almost there !!!"
+sign_text = "TEXT_FINISH_SIGN"
 
 [node name="PlatformSign" parent="Objects" instance=ExtResource("8_tipki")]
 position = Vector2(578, 87)
@@ -387,5 +417,7 @@ position = Vector2(442, -29)
 
 [node name="Enemy5" parent="Enemies" instance=ExtResource("10_choun")]
 position = Vector2(-408, 7)
+
+[connection signal="body_entered" from="Map/Killzone" to="Map/Killzone" method="_on_body_entered"]
 
 [editable path="Player"]
