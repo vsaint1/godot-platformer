@@ -33,7 +33,7 @@ func update_ray_position():
 
 func setup_sprite_region():
 	sprite.region_enabled = true
-	sprite.scale = Vector2(0.3, 0.3)
+	sprite.scale = Vector2(0.5,0.5)
 
 	var tile_index = TOTAL_TILES - 1 - difficulty
 	var columns = 2

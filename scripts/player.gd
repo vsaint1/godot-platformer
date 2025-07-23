@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPRINT_SPEED := 250.0
+const SPRINT_SPEED := 130.0
 const WALK_SPEED := 75.0
 
 var health := 100
