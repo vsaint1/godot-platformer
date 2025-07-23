@@ -81,9 +81,11 @@ func hurt(damage: int = 1) -> void:
 	
 	health_bar.value = health
 	hurt_sound.play()
+	self.velocity += Vector2(200,-200)
 	
 	if health <= 0:
 		die()
+		
 
 func die() -> void:
 	is_dead = true

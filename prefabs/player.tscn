@@ -265,6 +265,14 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 7.0
+offset_right = 304.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 1)
+
 [node name="HealthBar" type="ProgressBar" parent="CanvasLayer/Control"]
 layout_mode = 2
 offset_left = 23.0

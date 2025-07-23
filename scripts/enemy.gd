@@ -58,6 +58,6 @@ func update_difficulty_stats():
 			damage = 25
 
 func _on_area_2d_body_entered(body: Node) -> void:
-	print("collided")
-	if body.has_method("hurt"):
-		body.hurt(damage)
+	# safe since can only collide with player
+	body.hurt(damage)
+	
