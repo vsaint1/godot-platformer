@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://bkj76c8enitkk"]
+[gd_scene load_steps=42 format=3 uid="uid://bkj76c8enitkk"]
 
 [ext_resource type="Script" uid="uid://cvtskd6lq11dn" path="res://scripts/player.gd" id="1_i3pqv"]
 [ext_resource type="Texture2D" uid="uid://bbx4wt1vma21s" path="res://assets/platformer/sprites/knight.png" id="2_hqtel"]
@@ -212,6 +212,10 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_0wfyh"]
 radius = 6.08276
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_sh7kr"]
+atlas = ExtResource("2_hqtel")
+region = Rect2(201, 173, 13, 15)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rgeog"]
 bg_color = Color(0.147672, 0.147672, 0.147672, 1)
 
@@ -230,7 +234,7 @@ script = ExtResource("1_i3pqv")
 mobile_control = NodePath("CanvasLayer/Control/MobileControls")
 animation = NodePath("Animator")
 user_interface = NodePath("CanvasLayer/MarginContainer/GUI")
-health_bar = NodePath("CanvasLayer/Control/HealthBar")
+health_bar = NodePath("CanvasLayer/Control/ColorRect/HealthBar")
 hurt_sound = NodePath("AudioStreamPlayer2D")
 
 [node name="Animator" type="AnimatedSprite2D" parent="."]
@@ -265,20 +269,30 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
+offset_left = 13.0
+offset_top = 3.0
+offset_right = 53.0
+offset_bottom = 43.0
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/PanelContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_sh7kr")
+
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 7.0
-offset_right = 304.0
-offset_bottom = 40.0
+offset_left = 59.0
+offset_top = 10.0
+offset_right = 344.0
+offset_bottom = 43.0
 color = Color(0, 0, 0, 1)
 
-[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/Control"]
+[node name="HealthBar" type="ProgressBar" parent="CanvasLayer/Control/ColorRect"]
 layout_mode = 2
-offset_left = 23.0
-offset_top = 10.0
-offset_right = 301.0
-offset_bottom = 37.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 282.0
+offset_bottom = 30.0
 size_flags_horizontal = 4
 theme_override_styles/background = SubResource("StyleBoxFlat_rgeog")
 theme_override_styles/fill = SubResource("StyleBoxFlat_opo22")
