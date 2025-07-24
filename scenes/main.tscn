@@ -267,6 +267,10 @@ map = NodePath("../../Map/Terrain")
 
 [node name="PanelContainer" parent="Player/CanvasLayer/Control" index="0"]
 layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 40.0
+offset_bottom = 40.0
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_tefeu")
@@ -419,7 +423,7 @@ position = Vector2(955, 41)
 sign_text = "TEXT_FINISH_SIGN"
 
 [node name="StartSign" parent="Objects" instance=ExtResource("8_tipki")]
-position = Vector2(-9, 88)
+position = Vector2(-184, 88)
 sign_text = "TEXT_MEME"
 
 [node name="PlatformSign" parent="Objects" instance=ExtResource("8_tipki")]
@@ -442,18 +446,23 @@ disable_mode = 1
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Enemy" parent="Enemies" instance=ExtResource("10_choun")]
+visible = false
 position = Vector2(904, 88)
 
 [node name="Enemy2" parent="Enemies" instance=ExtResource("10_choun")]
+visible = false
 position = Vector2(1065, 23)
 
 [node name="Enemy3" parent="Enemies" instance=ExtResource("10_choun")]
+visible = false
 position = Vector2(249, -42)
 
 [node name="Enemy4" parent="Enemies" instance=ExtResource("10_choun")]
+visible = false
 position = Vector2(442, -29)
 
 [node name="Enemy5" parent="Enemies" instance=ExtResource("10_choun")]
+visible = false
 position = Vector2(-408, 7)
 
 [connection signal="body_entered" from="Map/Killzone" to="Map/Killzone" method="_on_body_entered"]
