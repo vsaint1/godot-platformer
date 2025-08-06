@@ -28,6 +28,9 @@ func is_mobile() -> bool:
 	
 	if os == "Android" || os == "iOS":
 		return true
+
+	if OS.has_feature("web_android") || OS.has_feature("web_ios"):
+		return true
 	
 	return false
 	

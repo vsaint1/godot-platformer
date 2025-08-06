@@ -36,7 +36,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _setup_mobile_gameplay() -> void:
-	if not InteractionManager.is_mobile():
+	if !InteractionManager.is_mobile():
 		mobile_control.queue_free()
 
 func apply_gravity(delta: float) -> void:

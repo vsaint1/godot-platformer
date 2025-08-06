@@ -248,7 +248,6 @@ position = Vector2(18, 16)
 shape = SubResource("CircleShape2D_0wfyh")
 
 [node name="Camera" type="Camera2D" parent="."]
-visible = false
 zoom = Vector2(4, 4)
 limit_smoothed = true
 script = ExtResource("3_sweqy")
@@ -270,6 +269,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
+layout_mode = 0
 offset_left = 12.0
 offset_top = 5.0
 offset_right = 52.0
@@ -314,30 +314,33 @@ size_flags_horizontal = 6
 [node name="Left" type="TouchScreenButton" parent="CanvasLayer/Control/MobileControls"]
 modulate = Color(1, 1, 1, 0.858824)
 texture_filter = 1
-position = Vector2(-165, 11)
-scale = Vector2(1, 1.032)
+position = Vector2(-174, -51)
+scale = Vector2(2, 2.064)
 texture_normal = ExtResource("4_2hs0m")
 passby_press = true
 action = "move_left"
 
 [node name="Right" type="TouchScreenButton" parent="CanvasLayer/Control/MobileControls"]
 modulate = Color(1, 1, 1, 0.858824)
-position = Vector2(-43, 11)
+position = Vector2(19, -48)
+scale = Vector2(2, 2)
 texture_normal = ExtResource("5_1jxqw")
 passby_press = true
 action = "move_right"
 
 [node name="Jump" type="TouchScreenButton" parent="CanvasLayer/Control/MobileControls"]
 modulate = Color(1, 1, 1, 0.858824)
-position = Vector2(896, 14)
+position = Vector2(772, -59)
+scale = Vector2(2, 2)
 texture_normal = ExtResource("6_dw050")
 action = "jump"
 
-[node name="Attack" type="TouchScreenButton" parent="CanvasLayer/Control/MobileControls"]
+[node name="Interact" type="TouchScreenButton" parent="CanvasLayer/Control/MobileControls"]
 modulate = Color(1, 1, 1, 0.858824)
-position = Vector2(1015, -43)
+position = Vector2(914, -180)
+scale = Vector2(2, 2)
 texture_normal = ExtResource("7_1jxqw")
-action = "Attack"
+action = "interact"
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
 anchors_preset = 1
